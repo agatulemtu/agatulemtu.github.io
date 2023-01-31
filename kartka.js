@@ -16,13 +16,35 @@ loadSprite("tlo", "tlo.png")
 
 loadSprite("stefan", "stefan.png")
 
+loadSound("muzyka","Kolenda.mp3")
+
 add([
     sprite("tlo"),
     pos(0,0)
 ])
 
-add([
+const stefan=add([
     sprite("stefan"),
-    pos(100,100),
+    pos(100,150),
     area(),
 ])
+
+let prawo=true
+
+onUpdate(()=>{
+
+    if(prawo&& stefan.pos.x<500)
+    stefan.pos.x +=1
+
+    else
+
+    {
+        prawo=false
+
+
+    }
+})
+
+onKeyPress("space",()=>{
+    play("muzyka")
+})
